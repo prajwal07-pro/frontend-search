@@ -31,7 +31,7 @@ export default function App() {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/jobs');
+        const response = await fetch('https://backend-search.vercel.app/api/jobs');
         const data = await response.json();
         if (data.success) setJobs(data.data);
       } catch (err) {
@@ -54,7 +54,7 @@ export default function App() {
     setAiLoading(true);
     setAiResult(null);
     try {
-      const response = await fetch('http://localhost:5000/api/ai-search', {
+      const response = await fetch('https://backend-search.vercel.app/api/ai-search', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query: searchTerm })
